@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { useRoute } from 'vitepress'
 
-const route = useRoute()
-
-console.log(route)
 </script>
 
 <template>
