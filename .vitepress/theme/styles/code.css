@@ -1,0 +1,17 @@
+div[class*="language-"] {
+  position: relative;
+  margin: 1.75em 0;
+}
+
+div[class*="language-"] > button.copy {
+  display: none;
+}
+
+div[class*="language-"] > span.lang {
+  position: absolute;
+  top: -1.25rem;
+  right: 0px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+}

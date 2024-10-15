@@ -13,11 +13,7 @@ const { frontmatter } = useData();
     </div>
 
     <div class="flex justify-center">
-      <a
-        href="/"
-        class="border-4 border-black bg-[#FFEB00] px-8 py-4 shadow-[4px_4px_0_black] transition duration-150 ease-linear hover:-translate-x-[0.125rem] hover:-translate-y-[0.125rem] hover:bg-[#fff90d] hover:shadow-[6px_6px_0_black]"
-        >Back to Home</a
-      >
+      <ButtonPrimary href="/">Back to Home</ButtonPrimary>
     </div>
   </section>
 </template>

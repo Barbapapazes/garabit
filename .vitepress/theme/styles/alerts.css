@@ -1,0 +1,8 @@
+:root {
+  --color-note: #3a85ff;
+  --color-tip: #00ddb3;
+  --color-warning: var(--color-yellow);
+  --color-severe: #ff7002;
+  --color-caution: #f34720;
+  --color-important: #8746ff;
+}

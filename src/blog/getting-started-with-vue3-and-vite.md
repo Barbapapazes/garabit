@@ -1,4 +1,5 @@
 ---
+layout: blog-show
 title: Getting Started with Vue 3 and Vite
 description: Learn how to set up a new Vue 3 project with Vite, the fast build tool for modern web development. Explore the basics of Vue 3, including the Composition API, reactivity, components, and more.
 date: 2024-09-14
@@ -6,6 +7,8 @@ date: 2024-09-14
 
 > [!WARNING]
 > his has been written by an AI in order to have some content. Do not use it as a reference.
+
+[[toc]]
 
 Vue.js is a progressive JavaScript framework that simplifies building modern web applications. Created by **Evan You**, Vue is designed to be flexible and integrates well with existing projects or new ones. With the release of **Vue 3**, the framework has introduced significant improvements in performance, TypeScript support, and new features like the Composition API.
 

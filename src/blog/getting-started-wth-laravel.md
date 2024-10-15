@@ -1,13 +1,14 @@
 ---
+layout: blog-show
 title: Getting Started with Laravel
 description: Learn how to set up a new Laravel project and build a simple web application. Explore the basics of Laravel, including routing, views, controllers, and more.
 date: 2024-10-14
 ---
 
--
-
 > [!WARNING]
 > This has been written by an AI in order to have some content. Do not use it as a reference.
+
+[[toc]]
 
 Laravel is a powerful and elegant PHP framework designed to make web development more enjoyable and efficient. Created by **Taylor Otwell**, Laravel is widely recognized for its clean syntax, scalability, and developer-friendly features. Whether you're building small applications or enterprise-level systems, Laravel provides the tools and libraries necessary to handle everything from database migrations to authentication.
 

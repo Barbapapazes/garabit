@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 
@@ -14,6 +15,15 @@ const utilsDir = resolve(currentDir, "theme", "utils");
 
 export default defineConfig({
   srcDir: "src",
+
+  markdown: {
+    config(md) {
+      md.use(MarkdownItGitHubAlerts);
+    },
+
+    theme: "everforest-light",
+    gfmAlerts: true,
+  },
 
   vite: {
     plugins: [

@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-yellow: #ffbf00;
+  --color-sand: #fdf6e3;
+}
