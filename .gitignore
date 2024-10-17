@@ -3,3 +3,4 @@ dist
 cache
 components.d.ts
 auto-imports.d.ts
+.env
