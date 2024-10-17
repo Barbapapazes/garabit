@@ -1,4 +1,5 @@
 node_modules
+dist
 cache
 components.d.ts
 auto-imports.d.ts

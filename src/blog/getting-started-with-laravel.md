@@ -1,5 +1,4 @@
 ---
-layout: blog-show
 title: Getting Started with Laravel
 description: Learn how to set up a new Laravel project and build a simple web application. Explore the basics of Laravel, including routing, views, controllers, and more.
 date: 2024-10-14
