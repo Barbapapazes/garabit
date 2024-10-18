@@ -5,6 +5,7 @@ import { joinURL, withoutTrailingSlash } from "ufo";
 import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import { genOg } from "./genOg";
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
@@ -35,7 +36,7 @@ export default defineConfig({
     ],
   ],
 
-  async transformPageData(pageData) {
+  async transformPageData(pageData, { siteConfig }) {
     // Initialize the `head` frontmatter if it doesn't exist.
     pageData.frontmatter.head ??= [];
 
@@ -63,6 +64,41 @@ export default defineConfig({
     if (pageData.filePath.startsWith("blog/")) {
       pageData.frontmatter.layout = "blog-show";
     }
+
+    // Automatically generate an Open Graph image
+    const ogName = pageData.filePath
+      .replaceAll(/\//g, "-")
+      .replace(/\.md$/, ".png");
+    await genOg(
+      pageData.frontmatter.title || pageData.title || siteConfig.site.title,
+      joinURL(siteConfig.srcDir, "public", "og", ogName),
+    );
+
+    // Add the Open Graph image to the frontmatter
+    pageData.frontmatter.head.push(
+      [
+        "meta",
+        {
+          property: "og:image",
+          content: joinURL(
+            "https://garabit.barbapapazes.dev", // Please, change this before deploying
+            "og",
+            ogName,
+          ),
+        },
+      ],
+      [
+        "meta",
+        {
+          name: "twitter:image",
+          content: joinURL(
+            "https://garabit.barbapapazes.dev", // Please, change this before deploying
+            "og",
+            ogName,
+          ),
+        },
+      ],
+    );
   },
 
   sitemap: {
