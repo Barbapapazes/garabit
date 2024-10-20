@@ -35,16 +35,52 @@ export default defineConfig({
     ],
   ],
 
-  async transformPageData(pageData) {
+  async transformPageData(pageData, { siteConfig }) {
     // Initialize the `head` frontmatter if it doesn't exist.
     pageData.frontmatter.head ??= [];
 
     // Add basic meta tags to the frontmatter.
     pageData.frontmatter.head.push(
-      ["meta", { property: "og:title", content: pageData.title }],
-      ["meta", { name: "twitter:title", content: pageData.title }],
-      ["meta", { property: "og:description", content: pageData.description }],
-      ["meta", { name: "twitter:description", content: pageData.description }],
+      [
+        "meta",
+        {
+          property: "og:title",
+          content:
+            pageData.frontmatter.title ||
+            pageData.title ||
+            siteConfig.site.title,
+        },
+      ],
+      [
+        "meta",
+        {
+          name: "twitter:title",
+          content:
+            pageData.frontmatter.title ||
+            pageData.title ||
+            siteConfig.site.title,
+        },
+      ],
+      [
+        "meta",
+        {
+          property: "og:description",
+          content:
+            pageData.frontmatter.description ||
+            pageData.description ||
+            siteConfig.site.description,
+        },
+      ],
+      [
+        "meta",
+        {
+          name: "twitter:description",
+          content:
+            pageData.frontmatter.description ||
+            pageData.description ||
+            siteConfig.site.description,
+        },
+      ],
     );
 
     // Add the canonical URL
