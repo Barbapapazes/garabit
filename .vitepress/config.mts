@@ -29,10 +29,6 @@ export default defineConfig({
     ["meta", { property: "og:image:type", content: "image/png" }],
     ["meta", { property: "og:site_name", content: "Garabit" }],
     ["meta", { property: "og:type", content: "website" }],
-    [
-      "meta",
-      { property: "og:url", content: "https://garabit.barbapapazes.dev" }, // Please, change this before deploying
-    ],
   ],
 
   async transformPageData(pageData, { siteConfig }) {
@@ -89,6 +85,17 @@ export default defineConfig({
       {
         rel: "canonical",
         href: joinURL(
+          "https://garabit.barbapapazes.dev", // Please, change this before deploying
+          withoutTrailingSlash(pageData.filePath.replace(/(index)?\.md$/, "")),
+        ),
+      },
+    ]);
+
+    pageData.frontmatter.head.push([
+      "meta",
+      {
+        property: "og:url",
+        content: joinURL(
           "https://garabit.barbapapazes.dev", // Please, change this before deploying
           withoutTrailingSlash(pageData.filePath.replace(/(index)?\.md$/, "")),
         ),
