@@ -20,10 +20,8 @@
   "devDependencies": {
     "@playwright/test": "^1.48.1",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.7.5",
     "autoprefixer": "^10.4.20",
-    "fs-extra": "^11.2.0",
     "markdown-it-github-alerts": "^0.3.0",
     "octokit": "^4.0.2",
     "postcss": "^8.4.47",
