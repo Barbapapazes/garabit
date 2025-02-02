@@ -1,9 +1,12 @@
 import { Buffer } from "node:buffer";
+import { readFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
-import fs from "fs-extra";
 import sharp from "sharp";
 
-const ogSvg = fs.readFileSync(join(".vitepress", "og-template.svg"), "utf-8");
+const ogSvg: string = readFileSync(
+  join(".vitepress", "og-template.svg"),
+  "utf-8",
+);
 
 /**
  * @credit Anthony Fu, https://antfu.me
@@ -11,10 +14,10 @@ const ogSvg = fs.readFileSync(join(".vitepress", "og-template.svg"), "utf-8");
  */
 export async function genOg(title: string, output: string) {
   // Skip if the file already exists
-  if (fs.existsSync(output)) return;
+  if (existsSync(output)) return;
 
   // Ensure the output directory exists
-  await fs.mkdir(dirname(output), { recursive: true });
+  mkdirSync(dirname(output), { recursive: true });
 
   // Break the title into lines of 30 characters
   const lines = title
