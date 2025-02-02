@@ -68,7 +68,12 @@ pages.forEach((page) => {
       { name: "og:image:type", value: "image/png" },
       { name: "og:site_name", value: "Garabit" },
       { name: "og:type", value: "website" },
-      { name: "og:url", value: "https://garabit.barbapapazes.dev" },
+      {
+        name: "og:url",
+        value: withoutTrailingSlash(
+          joinURL("https://garabit.barbapapazes.dev", link),
+        ),
+      },
     ];
 
     for (const { name, value } of ogMetaTags) {
