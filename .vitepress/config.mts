@@ -8,12 +8,13 @@ import Components from "unplugin-vue-components/vite";
 import { genOg } from "./genOg";
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
+const themeDir = resolve(currentDir, "theme");
 
-const componentsDir = resolve(currentDir, "theme", "components");
-const pagesDir = resolve(currentDir, "theme", "pages");
+const componentsDir = resolve(themeDir, "**", "components");
+const pagesDir = resolve(themeDir, "**", "pages");
 
-const composablesDir = resolve(currentDir, "theme", "composables");
-const utilsDir = resolve(currentDir, "theme", "utils");
+const composablesDir = resolve(themeDir, "**", "composables");
+const utilsDir = resolve(themeDir, "**", "utils");
 
 export default defineConfig({
   srcDir: "src",
@@ -164,16 +165,15 @@ export default defineConfig({
       {
         name: "watcher",
         configureServer(server) {
-          server.watcher.add([
-            componentsDir,
-            pagesDir,
-            composablesDir,
-            utilsDir,
-          ]);
+          server.watcher.add(themeDir);
         },
       },
       AutoImport({
-        imports: ["vue", "vitepress"],
+        imports: [
+          "vue",
+          "vitepress",
+          { from: "tailwind-variants", imports: ["tv"] },
+        ],
         dirs: [composablesDir, utilsDir],
         dts: resolve(currentDir, "auto-imports.d.ts"),
       }),
@@ -183,5 +183,10 @@ export default defineConfig({
         dts: resolve(currentDir, "components.d.ts"),
       }),
     ],
+    resolve: {
+      alias: {
+        "@": themeDir,
+      },
+    },
   },
 });

@@ -3,7 +3,11 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./.vitepress/theme/*"]
+    }
   },
   "include": ["./.vitepress/**/*"]
 }

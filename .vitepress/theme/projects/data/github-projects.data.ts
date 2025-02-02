@@ -1,7 +1,7 @@
+import type { Project } from "@/projects/types/project";
 import { Octokit } from "octokit";
 import { join } from "path";
 import { loadEnv } from "vitepress";
-import { Project } from "../theme/types/project";
 
 declare const data: {
   title: string;
@@ -46,16 +46,21 @@ export default {
           project.projects.map(async (project) => {
             const [owner, repo] = project.split("/");
 
-            const { data } = await octokit.rest.repos.get({
-              owner,
-              repo,
-            });
+            try {
+              const { data } = await octokit.rest.repos.get({
+                owner,
+                repo,
+              });
 
-            return {
-              name: project,
-              description: data.description,
-              url: data.html_url,
-            } satisfies Project;
+              return {
+                name: project,
+                description: data.description,
+                url: data.html_url,
+              } satisfies Project;
+            } catch (error) {
+              console.error(error);
+              return null;
+            }
           }),
         );
 

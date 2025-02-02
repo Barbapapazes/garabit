@@ -14,9 +14,9 @@ const { site } = useData();
       </span>
 
       <div class="flex items-center gap-6">
-        <ButtonPrimary href="/blog">Blog</ButtonPrimary>
+        <Button href="/blog" label="Blog" />
 
-        <ButtonPrimary href="/projects">Projects</ButtonPrimary>
+        <Button href="/projects" label="Projects" />
       </div>
     </div>
   </header>
