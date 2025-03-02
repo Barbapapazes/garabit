@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, SiteConfig } from "vitepress";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { joinURL, withoutTrailingSlash } from "ufo";
@@ -6,6 +6,7 @@ import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { genOg } from "./genOg";
+import { genMeta } from "./generators/meta";
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 const themeDir = resolve(currentDir, "theme");
@@ -158,6 +159,10 @@ export default defineConfig({
 
     theme: "everforest-light",
     gfmAlerts: true,
+  },
+
+  buildEnd: async (config: SiteConfig) => {
+    await genMeta(config)
   },
 
   vite: {

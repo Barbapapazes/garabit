@@ -1,4 +1,5 @@
 ---
+id: 2
 title: Getting Started with Vue 3 and Vite
 description: Learn how to set up a new Vue 3 project with Vite, the fast build tool for modern web development. Explore the basics of Vue 3, including the Composition API, reactivity, components, and more.
 date: 2024-09-14
