@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const { site } = useData();
+
+const loginUrl = `${import.meta.env.VITE_API_URL}/auth/github/redirect`
 </script>
 
 <template>
@@ -17,6 +19,8 @@ const { site } = useData();
         <Button href="/blog" label="Blog" />
 
         <Button href="/projects" label="Projects" />
+
+        <Button :href="loginUrl" label="Login" />
       </div>
     </div>
   </header>

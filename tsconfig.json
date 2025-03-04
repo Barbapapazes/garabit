@@ -9,5 +9,5 @@
       "@/*": ["./.vitepress/theme/*"]
     }
   },
-  "include": ["./.vitepress/**/*"]
+  "include": ["./.vitepress/**/*", "vite-env.d.ts"]
 }
