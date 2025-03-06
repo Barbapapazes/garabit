@@ -162,7 +162,7 @@ export default defineConfig({
   },
 
   buildEnd: async (config: SiteConfig) => {
-    await genMeta(config)
+    await genMeta(config);
   },
 
   vite: {
