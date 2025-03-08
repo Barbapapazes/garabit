@@ -7,9 +7,15 @@ settings:
 importers:
   .:
     dependencies:
+      "@pinia/colada":
+        specifier: ^0.13.7
+        version: 0.13.7(pinia@3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))
       ofetch:
         specifier: ^1.4.1
         version: 1.4.1
+      pinia:
+        specifier: ^3.0.1
+        version: 3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       tailwind-variants:
         specifier: ^0.3.1
         version: 0.3.1(tailwindcss@3.4.17)
@@ -1125,6 +1131,14 @@ packages:
       }
     engines: { node: ">= 18" }
 
+  "@pinia/colada@0.13.7":
+    resolution:
+      {
+        integrity: sha512-SbqJndWFPbeZTziLMpgEvXx9GhYDHO+tUZEOR2lZW2uCrycD/nj5RhvtXUB8I3Qwfh2YuQq9zJhJU5FV5dvNcg==,
+      }
+    peerDependencies:
+      pinia: ^2.2.6 || ^3.0.0
+
   "@pkgjs/parseargs@0.11.0":
     resolution:
       {
@@ -1594,16 +1608,34 @@ packages:
         integrity: sha512-Cexc8GimowoDkJ6eNelOPdYIzsu2mgNyp0scOQ3tiaYSb9iok6LOESSsJvHaI+ib3joRfqRJNLkHFjhNuWA5dg==,
       }
 
+  "@vue/devtools-api@7.7.2":
+    resolution:
+      {
+        integrity: sha512-1syn558KhyN+chO5SjlZIwJ8bV/bQ1nOVTG66t2RbG66ZGekyiYNmRO7X9BJCXQqPsFHlnksqvPhce2qpzxFnA==,
+      }
+
   "@vue/devtools-kit@7.7.1":
     resolution:
       {
         integrity: sha512-yhZ4NPnK/tmxGtLNQxmll90jIIXdb2jAhPF76anvn5M/UkZCiLJy28bYgPIACKZ7FCosyKoaope89/RsFJll1w==,
       }
 
+  "@vue/devtools-kit@7.7.2":
+    resolution:
+      {
+        integrity: sha512-CY0I1JH3Z8PECbn6k3TqM1Bk9ASWxeMtTCvZr7vb+CHi+X/QwQm5F1/fPagraamKMAHVfuuCbdcnNg1A4CYVWQ==,
+      }
+
   "@vue/devtools-shared@7.7.1":
     resolution:
       {
         integrity: sha512-BtgF7kHq4BHG23Lezc/3W2UhK2ga7a8ohAIAGJMBr4BkxUFzhqntQtCiuL1ijo2ztWnmusymkirgqUrXoQKumA==,
+      }
+
+  "@vue/devtools-shared@7.7.2":
+    resolution:
+      {
+        integrity: sha512-uBFxnp8gwW2vD6FrJB8JZLUzVb6PNRG0B0jBnHsOH8uKyva2qINY8PTF5Te4QlTbMDqU5K6qtJDr6cNsKWhbOA==,
       }
 
   "@vue/reactivity@3.5.13":
@@ -2620,6 +2652,18 @@ packages:
         integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==,
       }
     engines: { node: ">=0.10.0" }
+
+  pinia@3.0.1:
+    resolution:
+      {
+        integrity: sha512-WXglsDzztOTH6IfcJ99ltYZin2mY8XZCXujkYWVIJlBjqsP6ST7zw+Aarh63E1cDVYeyUcPCxPHzJpEOmzB6Wg==,
+      }
+    peerDependencies:
+      typescript: ">=4.4.4"
+      vue: ^2.7.0 || ^3.5.11
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   pirates@4.0.6:
     resolution:
@@ -3973,6 +4017,11 @@ snapshots:
       "@octokit/request-error": 6.1.6
       "@octokit/webhooks-methods": 5.1.0
 
+  "@pinia/colada@0.13.7(pinia@3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))":
+    dependencies:
+      "@vue/devtools-api": 7.7.2
+      pinia: 3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+
   "@pkgjs/parseargs@0.11.0":
     optional: true
 
@@ -4211,6 +4260,10 @@ snapshots:
     dependencies:
       "@vue/devtools-kit": 7.7.1
 
+  "@vue/devtools-api@7.7.2":
+    dependencies:
+      "@vue/devtools-kit": 7.7.2
+
   "@vue/devtools-kit@7.7.1":
     dependencies:
       "@vue/devtools-shared": 7.7.1
@@ -4221,7 +4274,21 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.1
 
+  "@vue/devtools-kit@7.7.2":
+    dependencies:
+      "@vue/devtools-shared": 7.7.2
+      birpc: 0.2.19
+      hookable: 5.5.3
+      mitt: 3.0.1
+      perfect-debounce: 1.0.0
+      speakingurl: 14.0.1
+      superjson: 2.2.1
+
   "@vue/devtools-shared@7.7.1":
+    dependencies:
+      rfdc: 1.4.1
+
+  "@vue/devtools-shared@7.7.2":
     dependencies:
       rfdc: 1.4.1
 
@@ -4805,6 +4872,13 @@ snapshots:
   picomatch@4.0.2: {}
 
   pify@2.3.0: {}
+
+  pinia@3.0.1(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)):
+    dependencies:
+      "@vue/devtools-api": 7.7.2
+      vue: 3.5.13(typescript@5.7.3)
+    optionalDependencies:
+      typescript: 5.7.3
 
   pirates@4.0.6: {}
 

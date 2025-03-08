@@ -16,6 +16,9 @@ const pagesDir = resolve(themeDir, "**", "pages");
 
 const composablesDir = resolve(themeDir, "**", "composables");
 const utilsDir = resolve(themeDir, "**", "utils");
+const queriesDir = resolve(themeDir, "**", "queries");
+const mutationsDir = resolve(themeDir, "**", "mutations");
+const apiFile = resolve(themeDir, "**", "api.ts");
 
 export default defineConfig({
   srcDir: "src",
@@ -178,8 +181,18 @@ export default defineConfig({
           "vue",
           "vitepress",
           { from: "tailwind-variants", imports: ["tv"] },
+          {
+            from: "@pinia/colada",
+            imports: [
+              "defineQuery",
+              "useQuery",
+              "defineMutation",
+              "useMutation",
+              "useQueryCache",
+            ],
+          },
         ],
-        dirs: [composablesDir, utilsDir],
+        dirs: [composablesDir, utilsDir, queriesDir, mutationsDir, apiFile],
         dts: resolve(currentDir, "auto-imports.d.ts"),
       }),
       Components({

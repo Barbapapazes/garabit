@@ -2,6 +2,9 @@
 const { site } = useData();
 
 const loginUrl = `${import.meta.env.VITE_API_URL}/auth/github/redirect`;
+
+const { state } = useUser();
+const { mutate: logout } = useLogoutUser();
 </script>
 
 <template>
@@ -20,7 +23,8 @@ const loginUrl = `${import.meta.env.VITE_API_URL}/auth/github/redirect`;
 
         <Button href="/projects" label="Projects" />
 
-        <Button :href="loginUrl" label="Login" />
+        <Button v-if="state.data" @click="logout" label="Logout" />
+        <Button v-else :href="loginUrl" label="Login" />
       </div>
     </div>
   </header>

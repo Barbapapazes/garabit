@@ -17,10 +17,11 @@ const button = tv({
 type ButtonVariants = VariantProps<typeof button>;
 
 export interface ButtonProps {
-  href: string;
+  href?: string;
   label: string;
   color?: ButtonVariants["color"];
   class?: any;
+  onClick?: () => void;
 }
 export interface ButtonEmits {}
 export interface ButtonSlots {}
@@ -35,7 +36,12 @@ const ui = computed(() => button({ class: props.class, color: props.color }));
 </script>
 
 <template>
-  <a :href :class="ui">
+  <component
+    :is="props.href ? 'a' : 'button'"
+    :href="props.href"
+    :class="ui"
+    @click="props.onClick"
+  >
     {{ props.label }}
-  </a>
+  </component>
 </template>
