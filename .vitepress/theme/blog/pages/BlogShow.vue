@@ -6,6 +6,8 @@ const { frontmatter } = useData();
   <Page>
     <BlogArticle :title="frontmatter.title" />
 
+    <CommentsSection />
+
     <PageFooter :backTo="{ href: '/blog', label: 'Back to Blog' }" />
   </Page>
 </template>
