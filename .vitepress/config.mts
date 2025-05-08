@@ -5,6 +5,7 @@ import { joinURL, withoutTrailingSlash } from "ufo";
 import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import Tailwind from '@tailwindcss/vite'
 import { genOg } from "./genOg";
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
@@ -182,6 +183,8 @@ export default defineConfig({
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         dts: resolve(currentDir, "components.d.ts"),
       }),
+
+      Tailwind(),
     ],
     resolve: {
       alias: {
